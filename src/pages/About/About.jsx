@@ -4,7 +4,7 @@ import AboutStroy from './Components/AboutStroy'
 
 const About = () => {
   return (
-    <div>
+    <div className='flex flex-col gap-y-10'>
       <AboutBanner />
       <AboutStroy />
     </div>
