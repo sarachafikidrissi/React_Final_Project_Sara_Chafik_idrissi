@@ -1,9 +1,12 @@
 import React from 'react'
+import AboutBanner from './Components/AboutBanner'
+import AboutStroy from './Components/AboutStroy'
 
 const About = () => {
   return (
     <div>
-      aboute page
+      <AboutBanner />
+      <AboutStroy />
     </div>
   )
 }

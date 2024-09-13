@@ -50,6 +50,9 @@ import discover from "./discover.png.webp";
 
 import shopBanner from './banner.webp'
 
+import aboutBanner from './about_banner.jpg'
+import aboutStory from './about_story.webp'
+
 
 
 export const assets = {
@@ -96,6 +99,9 @@ shopy3,
 shopy2,
 
 shopBanner,
+
+aboutBanner,
+aboutStory
 };
 
 
