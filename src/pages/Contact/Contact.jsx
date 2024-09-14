@@ -4,7 +4,7 @@ import ContactForm from './Components/ContactForm'
 
 const Contact = () => {
   return (
-    <div className=''>
+    <div className='flex flex-col gap-y-10'>
       <ContactBanner />
       <ContactForm />
     </div>
