@@ -53,6 +53,8 @@ import shopBanner from './banner.webp'
 import aboutBanner from './about_banner.jpg'
 import aboutStory from './about_story.webp'
 
+import avatar from './avatar.webp'
+
 
 
 export const assets = {
@@ -101,7 +103,8 @@ shopy2,
 shopBanner,
 
 aboutBanner,
-aboutStory
+aboutStory,
+avatar
 };
 
 
@@ -247,6 +250,24 @@ export const carouselImages  = [
     colors: "blue"
   },
 
+]
+
+export const article = [
+  {
+    image: assets.backPackBlog,
+    title: "Black Friday Guide: Best Sales & Discount Codes",
+    id: 1
+  },
+  {
+    image: assets.shirtBlog,
+    title: "Black Friday Guide: Best Sales & Discount Codes",
+    id: 2
+  },
+  {
+    image: assets.redBackPack,
+    title: "New York SS 2018 Street Style: By Annina Mislin",
+    id: 3
+  }
 ]
 
 

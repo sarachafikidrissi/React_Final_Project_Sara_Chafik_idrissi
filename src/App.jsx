@@ -13,6 +13,7 @@ import Blog from "./pages/Blog/Blog";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import { MyProvider } from "./context";
+import ProductBlog from "./pages/ProductBlog/ProductBlog";
 
 const App = () => {
   return (
@@ -31,6 +32,11 @@ const App = () => {
         <Route path="/orders" element={<Orders />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/blog/:id" element={<ProductBlog />} />
+
+
+
       </Routes>
       <Footer />
     </div>
