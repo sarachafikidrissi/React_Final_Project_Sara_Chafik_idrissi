@@ -206,56 +206,64 @@ export const carouselImages  = [
     image: assets.shopy8,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "white"
+    colors: "white",
+    qty: 0
   },
   { 
     id: 5,
     image: assets.shopy7,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "blue"
+    colors: "blue",
+    qty: 0
   },
   { 
     id: 6,
     image: assets.shopy6,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "blue"
+    colors: "blue",
+    qty: 0
   },
   { 
     id: 6,
     image: assets.shopy5,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "gray"
+    colors: "gray",
+    qty: 0
   },
   { 
     id: 7,
     image: assets.shopy4,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "white"
+    colors: "white",
+    qty: 0
   },
   { 
     id: 8,
     image: assets.shopy3,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "white"
+    colors: "white",
+    qty: 0
   },
   { 
     id: 9,
     image: assets.shopy2,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "gray"
+    colors: "gray",
+    qty: 0
   },
   { 
     id: 10,
     image: assets.item2,
     title: "Boxy7 T-Shirt with Roll Sleeve",
     price: 20,
-    colors: "blue"
+    colors: "blue",
+    qty: 0
   },
 
 ]

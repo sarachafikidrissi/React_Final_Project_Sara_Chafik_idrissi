@@ -24,9 +24,8 @@ body {
 }
 
 .custom-swal-position {
-  
   top: 10vh !important;  /* Adjust this based on your navbar height */
-  left: 89vw !important;
+  left: 86vw !important;
 }
 .custom-confirm-button{
   background-color: rgb(255, 68, 0) !important;

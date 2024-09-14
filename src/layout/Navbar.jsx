@@ -15,31 +15,29 @@ const Navbar = () => {
     showConfirmButton: false,
     customClass: {
       container: "custom-swal-position",
-    }
-    // timer: Infinity,
-    // timerProgressBar: true,
-    // didOpen: (toast) => {
-    //   toast.onmouseenter = Swal.stopTimer;
-    //   toast.onmouseleave = Swal.resumeTimer;
-    // },
+    },
   });
 
   const navigate = useNavigate();
 
   const { cartItems } = useAuth();
 
-  let cartContent = cartItems.map(
-    (item) => `
+  let cartContent = cartItems
+    .map(
+      (item) => `
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="${item.image}" alt="${item.title}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;">
+      <img src="${item.image}" alt="${
+        item.title
+      }" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;">
       <div>
         <p><strong>${item.title}</strong></p>
         <p>Price: $${item.price.toFixed(2)}</p>
+        <p>Quantity: ${item.qty}</p>
       </div>
     </div>
   `
-  )
-  .join('');
+    )
+    .join("");
 
   const [menuActive, setMenuActive] = useState(false);
 
@@ -105,20 +103,53 @@ const Navbar = () => {
         <div className="w-[1px] h-7 bg-gray-400"></div>
         <div className="relative">
           <LiaShoppingBagSolid
-            onClick={() => {cartItems.length === 0 &&
-              Toast.fire({
-                // icon: "success",
-                title: "Your shopping cart is empty",
-              });
-              cartItems.length > 0 &&  Toast.fire({
-                // icon: "success",
-                title: "Your shopping cart is not empty",
-                html: `
+            onClick={() => {
+              cartItems.length === 0 &&
+                Toast.fire({
+                  // icon: "success",
+                  title: "Your shopping cart is empty",
+                });
+              cartItems.length > 0 &&
+                Toast.fire({
+                  // icon: "success",
+                  title: "Your shopping cart is not empty",
+                  width: '35vw',
+                  html: `
                 <div style="text-align: left;">
                   ${cartContent}
                 </div>
-              `
-              });
+                 <div style="display: flex; gap: 10px; padding-top: 5vh;">
+          <button style="
+            background-color: black; 
+            color: white; 
+            width: 10vw;
+            padding: 2vh 0;
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease;"
+            onmouseover="this.style.backgroundColor='orange';" 
+            onmouseout="this.style.backgroundColor='black';"
+          >
+            VIEW CART
+          </button>
+          
+          <button style="
+            background-color: black; 
+            color: white; 
+            width: 10vw;
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease;"
+            onmouseover="this.style.backgroundColor='orange';" 
+            onmouseout="this.style.backgroundColor='black';"
+          >
+            CHECKOUT
+          </button>
+        </div>
+              `,
+                });
             }}
             className="text-3xl"
           />

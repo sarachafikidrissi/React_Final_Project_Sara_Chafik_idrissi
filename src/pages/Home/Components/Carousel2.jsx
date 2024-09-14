@@ -30,8 +30,10 @@ const Carousel2 = () => {
 
   const addToCart = (item) => {
     let newTab = [...cartItems];
+    item.qty+= 1
     newTab.push(item);
-    setCartItems(newTab);
+    setCartItems(newTab.filter((e, index) => newTab.indexOf(e) === index));
+
   };
   console.log(cartItems);
 
@@ -99,6 +101,15 @@ const Carousel2 = () => {
                     <button
                       onClick={() => {
                         addToCart(item);
+                        Swal.fire({
+                          title: `${item.title}`,
+                          text: `is added to cart !`,
+                          icon: "success",
+                          position: "right",
+                          customClass: {
+                            confirmButton: 'custom-confirm-button',  
+                          }
+                        });
                       }}
                       className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-neutral-900 text-white px-3 py-2 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-600 text-lg hover:bg-red-500"
                     >
