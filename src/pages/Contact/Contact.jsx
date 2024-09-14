@@ -1,9 +1,12 @@
 import React from 'react'
+import ContactBanner from './Components/ContactBanner'
+import ContactForm from './Components/ContactForm'
 
 const Contact = () => {
   return (
-    <div>
-      contact page
+    <div className=''>
+      <ContactBanner />
+      <ContactForm />
     </div>
   )
 }
