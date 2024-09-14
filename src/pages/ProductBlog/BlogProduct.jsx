@@ -65,7 +65,7 @@ const BlogProduct = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-y-5">
+        <div className="flex flex-col gap-y-5 sm:p-0 p-4">
           <h1 className="font-bold text-2xl font-sans">1 COMMENT TO SHOW</h1>
           <div className="flex gap-x-4">
             <img src={assets.avatar} alt="" />
@@ -82,9 +82,9 @@ const BlogProduct = () => {
 
           <div className="flex flex-col gap-y-4">
             <textarea name="" id="" placeholder="message" cols={90} rows={6} className="p-4 border border-[#c8c6c6]" ></textarea>
-            <input type="text" placeholder="Your Name" className="p-4 border border-[#c8c6c6] w-[20vw]"/>
-            <input type="email" placeholder="Email address" className="p-4 border border-[#c8c6c6] w-[20vw]"/>
-            <button  className="w-fit sm:px-[2vw] px-[10vw] bg-neutral-900 text-white py-2 rounded-3xl  hover:bg-red-500">POST COMMENT</button>
+            <input type="text" placeholder="Your Name" className="p-4 border border-[#c8c6c6] sm:w-[20vw] w-[50vw]"/>
+            <input type="email" placeholder="Email address" className="p-4 border border-[#c8c6c6] sm:w-[20vw] w-[50vw]"/>
+            <button  className="w-fit sm:px-[2vw] px-[4vw] bg-neutral-900 text-white py-2 rounded-3xl  hover:bg-red-500">POST COMMENT</button>
           </div>
         </div>
       </div>
