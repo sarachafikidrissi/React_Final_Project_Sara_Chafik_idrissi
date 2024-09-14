@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const navigate = useNavigate()
   return (
-    <div className=' flex justify-center gap-x-4 py-10 '>
-      <div className='w-[40vw]  border border-[#d3d3d3] p-4 flex flex-col gap-y-[5vh] h-fit'>
+    <div className=' flex sm:flex-row flex-col gap-y-4 justify-center gap-x-4 py-10 bg-red-500sm:px-0 px-2 '>
+      <div className='sm:w-[40vw]  border border-[#d3d3d3] p-4 flex flex-col gap-y-[5vh] h-fit'>
         <div>
           <h1 className='text-3xl'>New Customer</h1>
         <span className='font-bold font-sans text-[#888888]'>Register Account</span>
@@ -14,7 +14,7 @@ const Login = () => {
 
         <button onClick={() => {navigate('/register')}} className='text-white bg-black px-6 py-1.5 w-fit'>CONTINUE</button>
       </div>
-      <div className='w-[40vw] border border-[#d3d3d3] p-4 flex flex-col gap-y-3 '>
+      <div className='sm:w-[40vw] border border-[#d3d3d3] p-4 flex flex-col gap-y-3 '>
         <h1 className='text-3xl'>Returning Customer</h1>
         <span className='font-bold font-sans text-[#888888]'>I am a returning customer</span>
 
