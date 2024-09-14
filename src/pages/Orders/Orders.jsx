@@ -3,7 +3,7 @@ import React from 'react'
 const Orders = () => {
   return (
     <div>
-      orders page
+      Order Page
     </div>
   )
 }

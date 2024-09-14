@@ -7,7 +7,7 @@ import { useAuth } from "../../../context";
 import Swal from "sweetalert2";
 
 const Carousel2 = () => {
-  const { cartItems, setCartItems, setCount } = useAuth();
+  const { cartItems, setCartItems, setCount, addToCart } = useAuth();
 
   const sliderRef2 = React.useRef(null);
 
@@ -28,13 +28,13 @@ const Carousel2 = () => {
     sliderRef2.current.slickPrev();
   };
 
-  const addToCart = (item) => {
-    let newTab = [...cartItems];
-    item.qty+= 1
-    newTab.push(item);
-    setCartItems(newTab.filter((e, index) => newTab.indexOf(e) === index));
+  // const addToCart = (item) => {
+  //   let newTab = [...cartItems];
+  //   item.qty+= 1
+  //   newTab.push(item);
+  //   setCartItems(newTab.filter((e, index) => newTab.indexOf(e) === index));
 
-  };
+  // };
   console.log(cartItems);
 
   return (

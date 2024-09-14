@@ -33,8 +33,15 @@ export const MyProvider = ({ children }) => {
 
     const [cartItems, setCartItems] = useState([])
 
+    const addToCart = (item) => {
+        let newTab = [...cartItems];
+        item.qty+= 1
+        newTab.push(item);
+        setCartItems(newTab.filter((e, index) => newTab.indexOf(e) === index));
+    
+      };
 
-    const all = {userData, setUserData, SignUp, login, cartItems, setCartItems  }
+    const all = {userData, setUserData, SignUp, login, cartItems, setCartItems, addToCart  }
 
     return (
         <Mycontext.Provider value={all}>{children}</Mycontext.Provider>

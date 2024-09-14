@@ -22,6 +22,7 @@ const Navbar = () => {
 
   const { cartItems } = useAuth();
 
+
   let cartContent = cartItems
     .map(
       (item) => `
@@ -115,11 +116,11 @@ const Navbar = () => {
                   title: "Your shopping cart is not empty",
                   width: '35vw',
                   html: `
-                <div style="text-align: left;">
+                <div style="text-align: left; max-height: 50vh; overflow-y: auto;">
                   ${cartContent}
                 </div>
                  <div style="display: flex; gap: 10px; padding-top: 5vh;">
-          <button style="
+          <button id="viewCartBtn" style="
             background-color: black; 
             color: white; 
             width: 10vw;
@@ -134,7 +135,7 @@ const Navbar = () => {
             VIEW CART
           </button>
           
-          <button style="
+          <button id="checkoutBtn"  style="
             background-color: black; 
             color: white; 
             width: 10vw;
@@ -144,11 +145,22 @@ const Navbar = () => {
             transition: background-color 0.3s ease;"
             onmouseover="this.style.backgroundColor='orange';" 
             onmouseout="this.style.backgroundColor='black';"
+            
           >
             CHECKOUT
           </button>
         </div>
               `,
+              didOpen: () => {
+                // Add click listeners to buttons after the modal is opened
+                document.getElementById('viewCartBtn').addEventListener('click', () => {
+                  window.location.href = '/orders'; // Navigate to the cart page
+                });
+            
+                document.getElementById('checkoutBtn').addEventListener('click', () => {
+                  window.location.href = '/checkout'; // Navigate to the checkout page
+                });
+              }
                 });
             }}
             className="text-3xl"
