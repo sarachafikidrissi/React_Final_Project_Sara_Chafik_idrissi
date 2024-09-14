@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { assets } from '../assets'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { useAuth } from '../context';
@@ -9,6 +9,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 
 
 const Navbar = () => {
+  const navigate = useNavigate()
 
   const {count} = useAuth()
 
@@ -23,7 +24,7 @@ const Navbar = () => {
 
 
   return (
-    <div className='py-[4vh] flex justify-between items-center sm:px-10 px-4  '>
+    <div className='py-[4vh] flex justify-between items-center sm:px-10 px-4 shadow-md  '>
       <div>
         <img src={assets.logo} alt="" />
       </div>
@@ -35,7 +36,7 @@ const Navbar = () => {
         <Link onClick={() => setMenuActive(false)} to={'/contact'} className='sm:focus:text-orange-600'>Contact</Link>
       </div>
       <div className='flex sm:gap-x-6 gap-x-2 items-center text-[#999999] '>
-        <FaRegCircleUser className='text-2xl '/>
+        <FaRegCircleUser onClick={() => {navigate('/login')}} className='text-2xl cursor-pointer'/>
         <div className='w-[1px] h-7 bg-gray-400'></div>
         <div className='relative'>
         <LiaShoppingBagSolid className='text-3xl' />
