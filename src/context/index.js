@@ -7,7 +7,7 @@ export const Mycontext = createContext()
 
 export const MyProvider = ({ children }) => {
 
-    const [count, setCount] = useState(0)
+   
 
     const [userData, setUserData] = useState([])
     const [currentUser, setCurrentUser] = useState(null);  
@@ -30,7 +30,11 @@ export const MyProvider = ({ children }) => {
         }
     };
 
-    const all = {count, setCount, userData, setUserData, SignUp, login  }
+
+    const [cartItems, setCartItems] = useState([])
+
+
+    const all = {userData, setUserData, SignUp, login, cartItems, setCartItems  }
 
     return (
         <Mycontext.Provider value={all}>{children}</Mycontext.Provider>

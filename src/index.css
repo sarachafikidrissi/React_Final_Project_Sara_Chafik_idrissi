@@ -22,3 +22,16 @@
 body {
   font-family: 'Montserrat';
 }
+
+.custom-swal-position {
+  
+  top: 10vh !important;  /* Adjust this based on your navbar height */
+  left: 89vw !important;
+}
+.custom-confirm-button{
+  background-color: rgb(255, 68, 0) !important;
+  border-radius: 50px;
+  position: relative;
+  left: 15vw !important;
+
+}

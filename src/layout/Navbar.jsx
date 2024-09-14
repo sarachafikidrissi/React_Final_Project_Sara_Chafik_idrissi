@@ -1,55 +1,145 @@
-import React, { useState } from 'react'
-import { assets } from '../assets'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { assets } from "../assets";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { LiaShoppingBagSolid } from "react-icons/lia";
-import { useAuth } from '../context';
+import { useAuth } from "../context";
 import { CiMenuBurger } from "react-icons/ci";
 import { LiaTimesSolid } from "react-icons/lia";
-
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const navigate = useNavigate()
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top",
+    showConfirmButton: false,
+    customClass: {
+      container: "custom-swal-position",
+    }
+    // timer: Infinity,
+    // timerProgressBar: true,
+    // didOpen: (toast) => {
+    //   toast.onmouseenter = Swal.stopTimer;
+    //   toast.onmouseleave = Swal.resumeTimer;
+    // },
+  });
 
-  const {count} = useAuth()
+  const navigate = useNavigate();
 
-  const [menuActive, setMenuActive] = useState(false)
+  const { cartItems } = useAuth();
+
+  let cartContent = cartItems.map(
+    (item) => `
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+      <img src="${item.image}" alt="${item.title}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;">
+      <div>
+        <p><strong>${item.title}</strong></p>
+        <p>Price: $${item.price.toFixed(2)}</p>
+      </div>
+    </div>
+  `
+  )
+  .join('');
+
+  const [menuActive, setMenuActive] = useState(false);
 
   const handlMenu = () => {
-  
-    menuActive ? setMenuActive(false) : setMenuActive(true)
-    
-  }
-  console.log(menuActive);
-
+    menuActive ? setMenuActive(false) : setMenuActive(true);
+  };
 
   return (
-    <div className='py-[4vh] flex justify-between items-center sm:px-10 px-4 shadow-md  '>
+    <div className="py-[4vh] flex justify-between items-center sm:px-10 px-4 shadow-md  ">
       <div>
         <img src={assets.logo} alt="" />
       </div>
-      <div className={`${!menuActive ? 'hidden sm:flex sm:flex-row gap-x-10 font-montserrat' : 'flex flex-col gap-y-5 p-4  bg-orange-600 text-white h-[50vh]  absolute top-[12vh] z-50 w-full right-0'}`}>
-      <Link onClick={() => setMenuActive(false)} to={'/'} className='sm:focus:text-orange-600'>Home</Link>
-        <Link onClick={() => setMenuActive(false)} to={'/shop'} className='sm:focus:text-orange-600'>Shop</Link>
-        <Link onClick={() => setMenuActive(false)} to={'/blog'} className='sm:focus:text-orange-600'>Blog</Link>
-        <Link onClick={() => setMenuActive(false)} to={'/about'} className='sm:focus:text-orange-600'>About</Link>
-        <Link onClick={() => setMenuActive(false)} to={'/contact'} className='sm:focus:text-orange-600'>Contact</Link>
+      <div
+        className={`${
+          !menuActive
+            ? "hidden sm:flex sm:flex-row gap-x-10 font-montserrat"
+            : "flex flex-col gap-y-5 p-4  bg-orange-600 text-white h-[50vh]  absolute top-[12vh] z-50 w-full right-0"
+        }`}
+      >
+        <Link
+          onClick={() => setMenuActive(false)}
+          to={"/"}
+          className="sm:focus:text-orange-600"
+        >
+          Home
+        </Link>
+        <Link
+          onClick={() => setMenuActive(false)}
+          to={"/shop"}
+          className="sm:focus:text-orange-600"
+        >
+          Shop
+        </Link>
+        <Link
+          onClick={() => setMenuActive(false)}
+          to={"/blog"}
+          className="sm:focus:text-orange-600"
+        >
+          Blog
+        </Link>
+        <Link
+          onClick={() => setMenuActive(false)}
+          to={"/about"}
+          className="sm:focus:text-orange-600"
+        >
+          About
+        </Link>
+        <Link
+          onClick={() => setMenuActive(false)}
+          to={"/contact"}
+          className="sm:focus:text-orange-600"
+        >
+          Contact
+        </Link>
       </div>
-      <div className='flex sm:gap-x-6 gap-x-2 items-center text-[#999999] '>
-        <FaRegCircleUser onClick={() => {navigate('/login')}} className='text-2xl cursor-pointer'/>
-        <div className='w-[1px] h-7 bg-gray-400'></div>
-        <div className='relative'>
-        <LiaShoppingBagSolid className='text-3xl' />
-        <div className='w-4 h-4 bg-black text-white flex items-center justify-center rounded-full absolute top-0 right-[-5px]'>{count}</div>
+      <div className="flex sm:gap-x-6 gap-x-2 items-center text-[#999999] ">
+        <FaRegCircleUser
+          onClick={() => {
+            navigate("/login");
+          }}
+          className="text-2xl cursor-pointer"
+        />
+        <div className="w-[1px] h-7 bg-gray-400"></div>
+        <div className="relative">
+          <LiaShoppingBagSolid
+            onClick={() => {cartItems.length === 0 &&
+              Toast.fire({
+                // icon: "success",
+                title: "Your shopping cart is empty",
+              });
+              cartItems.length > 0 &&  Toast.fire({
+                // icon: "success",
+                title: "Your shopping cart is not empty",
+                html: `
+                <div style="text-align: left;">
+                  ${cartContent}
+                </div>
+              `
+              });
+            }}
+            className="text-3xl"
+          />
+          <div className="w-4 h-4 bg-black text-white flex items-center justify-center rounded-full absolute top-0 right-[-5px]">
+            {cartItems.length}
+          </div>
         </div>
-        {
-          menuActive  ? <LiaTimesSolid onClick={handlMenu} className='text-3xl text-black sm:hidden'/> :<CiMenuBurger onClick={handlMenu} className='text-3xl text-black sm:hidden'/>
-
-        }
-
+        {menuActive ? (
+          <LiaTimesSolid
+            onClick={handlMenu}
+            className="text-3xl text-black sm:hidden"
+          />
+        ) : (
+          <CiMenuBurger
+            onClick={handlMenu}
+            className="text-3xl text-black sm:hidden"
+          />
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

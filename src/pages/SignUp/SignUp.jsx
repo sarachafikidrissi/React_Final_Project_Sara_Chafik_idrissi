@@ -21,12 +21,9 @@ const SignUp = () => {
     setLastName("")
     setEmail("")
     setPassword("")
+    navigate('/login')
     
 };
-console.log(userData);
-
-
-
 
   return (
     <div className="flex sm:px-[10vw]  pb-[5vw] ">
