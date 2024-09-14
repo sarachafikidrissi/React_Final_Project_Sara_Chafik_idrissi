@@ -5,8 +5,8 @@ import { TiUser } from "react-icons/ti";
 const SignUp = () => {
     const navigate = useNavigate()
   return (
-    <div className='flex px-[10vw]  pb-[5vw]'>
-        <div className='w-[60vw] p-4 flex flex-col gap-y-3 '>
+    <div className='flex sm:px-[10vw]  pb-[5vw] '>
+        <div className='sm:w-[60vw] w-full p-4 flex flex-col gap-y-3 '>
         <h1 className='text-3xl'>Create Account</h1>
         <span className='font-bold font-sans text-[#888888]'>Your Personal Details</span>
 
